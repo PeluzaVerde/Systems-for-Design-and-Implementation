@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>employee Management System</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">employee Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/employees}">employee Management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class ="container">
+  <div class = "row">
+    <h1> List employees </h1>
+  </div>
+
+  <div class = "row">
+    <div class = "col-lg-3">
+      <a th:href = "@{/employees/new}" class = "btn btn-primary btn-sm mb-3"> Add employee</a>
+    </div>
+    <div>
+      <form th:action="@{/filter}" th:value="${filter}" method="POST">
+      <input
+      type="text"
+      class = "form-control"
+      placeholder="Enter Filterung value"
+      th:default="0"
+      name = "filter"
+      >
+        <div class = "box-footer">
+          <button type="submit" class = "btn btn-primary">
+            Submit
+          </button>
+        </div>
+        </form>
+    </div>
+  </div>
+  <table class = "table table-striped table-bordered">
+    <thead class = "table-dark">
+    <tr>
+      <th> employee Name</th>
+      <th> employee Type</th>
+      <th> employee Price </th>
+      <th> employee Producer</th>
+      <th> Is magnetic</th>
+      <th> Actions </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each = "employee: ${employees}">
+      <td th:text = "${employee.name}"></td>
+      <td th:text = "${employee.type}"></td>
+      <td th:text = "${employee.price}"></td>
+      <td th:text = "${employee.producer}"></td>
+      <td th:text = "${employee.magnetic}"></td>
+      <td>
+        <div>
+          <table class = "table table-info table-dark">
+            <tr>
+              <th>
+        <a th:href = "@{/employees/edit/{id}(id=${employee.id})}"
+           class = "btn btn-primary">Update</a>
+              </th><th>
+        <a th:href = "@{/employees/{id}(id=${employee.id})}"
+           class = "btn btn-danger">Delete</a>
+            </th><th>
+        <a th:href = "@{/employees/add_review/{id}(id=${employee.id})}"
+           class = "btn btn-secondary">Add REvIeW</a>
+            </th>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+
+</div>
+
+
+<div class ="container">
+  <div class = "row">
+    <h1> List Reviews </h1>
+  </div>
+  <table class = "table table-striped table-bordered">
+    <thead class = "table-dark">
+    <tr>
+      <th> employee REvIeWeD</th>
+      <th> REvIeW Username</th>
+      <th> REvIeW description</th>
+      <th> REvIeW rating </th>
+      <th> REvIeW date</th>
+      <th> Would druttut recommend?</th>
+      <th> ActionsInUganda </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each = "review: ${reviews}">
+      <td th:text = "${review.employee.name}"></td>
+      <td th:text = "${review.username}"></td>
+      <td th:text = "${review.description}"></td>
+      <td th:text = "${review.rating}"></td>
+      <td th:text = "${review.date}"></td>
+      <td th:text = "${review.recommend}"></td>
+      <td>
+        <a th:href = "@{/reviews/edit/{id}(id=${review.id})}"
+           class = "btn btn-primary">Update</a>
+
+        <a th:href = "@{/reviews/{id}(id=${review.id})}"
+           class = "btn btn-danger">Delete</a>
+
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+
+</div>
+</body>
+</html>
