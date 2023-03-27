@@ -1,6 +1,7 @@
 package group.lab1FINAL.Model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
@@ -8,9 +9,7 @@ import java.util.List;
 import java.util.Objects;
 @Entity
 @Table(name= "restaurant")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+
 public class Restaurant {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     @Column(name="name")
@@ -27,12 +26,15 @@ public class Restaurant {
 
 
 
+    @JsonIgnoreProperties("restaurants")
     @OneToMany
-    @JoinColumn(name="employee_id")
+    @JoinColumn(name="restaurant_id")
     private List<RestaurantEmployee> restaurantEmployees;
-//    @ManyToOne
-//    @JoinColumn(name="employee_id")
-//    private Employee employee;
+
+    @JsonIgnoreProperties("restaurants")
+    @ManyToOne
+    @JoinColumn(name="employee_id")
+    private Employee employee;
 
     public Restaurant(String name, String description, float rating, String date, String city) {
 
@@ -47,6 +49,14 @@ public class Restaurant {
     }
 
 
+
+    public List<RestaurantEmployee> getRestaurantEmployees() {
+        return restaurantEmployees;
+    }
+
+    public void setRestaurantEmployees(List<RestaurantEmployee> restaurantEmployees) {
+        this.restaurantEmployees = restaurantEmployees;
+    }
 
 
     public void setId(Long id) {

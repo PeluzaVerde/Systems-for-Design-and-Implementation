@@ -1,8 +1,6 @@
 package group.lab1FINAL.Model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -10,9 +8,6 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "employee")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class Employee {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
@@ -32,12 +27,15 @@ public class Employee {
 //    private List<Review> reviews;
 
 
+    @JsonIgnoreProperties("reviews")
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Review> reviews;
 
 
+
     @OneToMany
     @JoinColumn(name="restaurant_id")
+    @JsonIgnoreProperties("employee")
     private List<RestaurantEmployee> restaurantEmployees;
 
 
@@ -97,6 +95,14 @@ public class Employee {
 
     public void setIntern(Boolean intern) {
         this.intern = intern;
+    }
+
+    public List<RestaurantEmployee> getRestaurantEmployees() {
+        return restaurantEmployees;
+    }
+
+    public void setRestaurantEmployees(List<RestaurantEmployee> restaurantEmployees) {
+        this.restaurantEmployees = restaurantEmployees;
     }
 
     @Override

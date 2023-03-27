@@ -6,9 +6,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name= "review")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+
 public class Review {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     @Column(name="username")

@@ -1,10 +1,12 @@
 package group.lab1FINAL.Model;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.*;
 import java.util.List;
 import java.util.Objects;
 @Entity
 @Table(name= "restaurantemployee")
-public class RestaurantEmployee {
+public class  RestaurantEmployee {
     public RestaurantEmployee(Long id) {
         this.id = id;
     }
@@ -21,10 +23,13 @@ public class RestaurantEmployee {
     @Column(name="remote")
     private Boolean remote;
 
+    @JsonIncludeProperties("id")
     @ManyToOne
     @JoinColumn(name="employee_id")
     private Employee employee;
 
+
+    @JsonIncludeProperties("id")
     @ManyToOne
     @JoinColumn(name="restaurant_id")
     private Restaurant restaurant;
