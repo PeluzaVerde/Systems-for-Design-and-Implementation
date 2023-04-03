@@ -3,9 +3,13 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 export default function SortAgeEmployee() {
-    const [employees, setEmployees] = useState([]); //useState is a hook
-
-
+    const [employees,setEmployees]= useState({
+        name:"",
+        age:"",
+        salary:"",
+        restaurant:"",
+        intern:""
+    })
 
     useEffect(() => {
         loadEmployee();
