@@ -18,8 +18,16 @@ export default function Home() {
     const loadEmployee = async () => {
         const resulte = await axios.get("api/restaurantemployee-details");
         const result = await axios.get("api/employees-details");
-        result.data.sort((a, b) => (a.age > b.age) ? 1 : -1);
+        
         setEmployees(result.data);
+        SortEmployee();
+        
+
+    }
+
+    const SortEmployee = async () => {
+        employees.sort((a, b) => (a.age > b.age) ? 1 : -1)
+        setEmployees(employees);
 
     }
 
