@@ -29,6 +29,19 @@ export default function SortAgeEmployee() {
 
     }
 
+    function compare( a, b ) {
+        if ( a.age < b.age ){
+          return -1;
+        }
+        if ( a.age > b.age ){
+          return 1;
+        }
+        return 0;
+      }
+      
+      employees.sort( compare );
+      
+
 
 
    
