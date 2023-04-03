@@ -12,17 +12,20 @@ export default function Home() {
 
 
 
- 
+
     }, []);
 
     const loadEmployee = async () => {
-    
-        const result = await axios.get("api/employee/comparison");
+        const resulte = await axios.get("api/restaurantemployee-details");
+        const result = await axios.get("api/employees-details");
+        result.data.sort((a, b) => (a.age > b.age) ? 1 : -1);
         setEmployees(result.data);
 
     }
 
 
+
+   
 
     return ( 
         <div className='container'>

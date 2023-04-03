@@ -9,6 +9,7 @@ import AddEmployee from './components/employee/AddEmployee';
 import EmployeeComparison from './components/employee/EmployeeComparison';
 import UpdateEmployee from './components/employee/UpdateEmployee';
 import ViewEmployee from './components/employee/ViewEmployee';
+import SortEmployee from './components/employee/SortEmployee';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/employee-comparison" element={<EmployeeComparison />} />
       <Route exact path="/update-employee/:id" element={<UpdateEmployee />} />
       <Route exact path="/view-employee/:id" element={<ViewEmployee />} />
+      <Route exact path="/sort-employee" element={<SortEmployee />} />"
     </Routes>
   </Router>
       

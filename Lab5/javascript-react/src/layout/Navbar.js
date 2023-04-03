@@ -36,6 +36,22 @@ export default function Navbar() {
                     </button>
                     <Link className="btn btn-outline-dark" to="/employee-comparison">View Employee comparison</Link>
                     
+
+                    <button
+                        className="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse"
+                         data-bs-target="#navbarNav" 
+                         aria-controls="navbarNav" 
+                         aria-expanded="false"
+                          aria-label="Toggle navigation">
+
+
+
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <Link className="btn btn-outline-dark" to="/sort-employee">View Sort</Link>
+
                     </div>
                     </nav>
 
