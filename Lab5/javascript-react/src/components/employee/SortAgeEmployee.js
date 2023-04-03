@@ -3,13 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 export default function SortAgeEmployee() {
-    const [employees,setEmployees]= useState({
-        name:"",
-        age:"",
-        salary:"",
-        restaurant:"",
-        intern:""
-    })
+    const [employees,setEmployees]= useState([]);
 
     useEffect(() => {
         loadEmployee();
@@ -24,16 +18,16 @@ export default function SortAgeEmployee() {
         const result = await axios.get("api/employees-details");
         
         setEmployees(result.data);
-        // SortEmployee();
+         SortEmployee();
         
 
     }
 
-    // const SortEmployee = async () => {
-    //     employees.sort((a, b) => (a.age > b.age) ? 1 : -1)
-    //     setEmployees(employees);
+    const SortEmployee = async () => {
+        employees.sort((a, b) => (a.age > b.age) ? 1 : -1)
+        setEmployees(employees);
 
-    // }
+    }
 
 
 
