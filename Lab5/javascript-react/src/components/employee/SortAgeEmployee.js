@@ -13,22 +13,6 @@ export default function SortAgeEmployee() {
 
     }, []);
 
-    const loadEmployee = async () => {
-        const resulte = await axios.get("api/restaurantemployee-details");
-        const result = await axios.get("api/employees-details");
-        
-        setEmployees(result.data);
-         SortEmployee();
-        
-
-    }
-
-    const SortEmployee = async () => {
-        employees.sort((a, b) => (a.age > b.age) ? 1 : -1)
-        setEmployees(employees);
-
-    }
-
     function compare( a, b ) {
         if ( a.age < b.age ){
           return -1;
@@ -38,9 +22,28 @@ export default function SortAgeEmployee() {
         }
         return 0;
       }
+
+    const loadEmployee = async () => {
+        const resulte = await axios.get("api/restaurantemployee-details");
+        const result = await axios.get("api/employees-details");
+        
+        setEmployees(result.data);
+        //  SortEmployee();
+        employees.sort( compare );
+        
+
+    }
+
+    // const SortEmployee = async () => {
+    //     employees.sort((a, b) => (a.age > b.age) ? 1 : -1)
+    //     setEmployees(employees);
+
+    // }
+
+ 
       
-      employees.sort( compare );
       
+
 
 
 
