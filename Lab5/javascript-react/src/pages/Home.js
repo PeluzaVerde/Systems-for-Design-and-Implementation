@@ -16,14 +16,14 @@ export default function Home() {
     }, []);
 
     const loadEmployee = async () => {
-        const resulte = await axios.get("http://localhost:80/restaurantemployee-details");
-        const result = await axios.get("http://localhost:80/employees-details");
+        const resulte = await axios.get("api/restaurantemployee-details");
+        const result = await axios.get("api/employees-details");
         setEmployees(result.data);
 
     }
 
     const deleteEmployee = async (id) => {
-        await axios.delete(`http://localhost:80/employees/${id}`);
+        await axios.delete(`api/employees/${id}`);
         loadEmployee();
     }
 

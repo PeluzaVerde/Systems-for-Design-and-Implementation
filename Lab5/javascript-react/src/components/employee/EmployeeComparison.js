@@ -17,7 +17,7 @@ export default function Home() {
 
     const loadEmployee = async () => {
     
-        const result = await axios.get("http://localhost:80/employee/comparison");
+        const result = await axios.get("api/employee/comparison");
         setEmployees(result.data);
 
     }
