@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://illustrious-cactus-75f2eb.netlify.app/")
 @RestController
 public class EmployeeControllerJson {
     private EmployeeServiceImpl employeeService;
