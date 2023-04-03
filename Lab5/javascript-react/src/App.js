@@ -9,7 +9,7 @@ import AddEmployee from './components/employee/AddEmployee';
 import EmployeeComparison from './components/employee/EmployeeComparison';
 import UpdateEmployee from './components/employee/UpdateEmployee';
 import ViewEmployee from './components/employee/ViewEmployee';
-import SortEmployee from './components/employee/SortAgeEmployee';
+import SortAgeEmployee from './components/employee/SortAgeEmployee';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
