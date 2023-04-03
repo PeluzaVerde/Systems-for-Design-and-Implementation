@@ -45,6 +45,14 @@ export default function SortAgeEmployee() {
 
  
       
+    const handleSort = (e) => {
+
+        const sortedEmployees = [...employees].sort((a,b)=>{
+            return a.age > b.age ?1 : -1
+        });
+        setEmployees(sortedEmployees);
+    }
+
       
 
 
@@ -88,6 +96,7 @@ export default function SortAgeEmployee() {
 
             
             <Link className="btn btn-primary" to="/">Back to Home</Link>
+            <button className="btn btn-primary" onClick={handleSort}>Sort by Age</button>
             </div>
         </div>
     );
