@@ -44,7 +44,7 @@ export default function AddEmployee() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="Age" className="form-label">Age</label>
-                        <input type={"text"} className="form-control" placeholder="Enter Age" name="age" value={age}
+                        <input type={"number"} className="form-control" placeholder="Enter Age" name="age" value={age}
                             onChange={(e) => onInputChange(e)} />
 
                     </div>
