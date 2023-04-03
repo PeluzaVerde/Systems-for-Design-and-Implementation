@@ -20,16 +20,16 @@ export default function Home() {
         const result = await axios.get("api/employees-details");
         
         setEmployees(result.data);
-        SortEmployee();
+        // SortEmployee();
         
 
     }
 
-    const SortEmployee = async () => {
-        employees.sort((a, b) => (a.age > b.age) ? 1 : -1)
-        setEmployees(employees);
+    // const SortEmployee = async () => {
+    //     employees.sort((a, b) => (a.age > b.age) ? 1 : -1)
+    //     setEmployees(employees);
 
-    }
+    // }
 
 
 
