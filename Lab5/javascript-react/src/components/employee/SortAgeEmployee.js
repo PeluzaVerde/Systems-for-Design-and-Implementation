@@ -29,8 +29,10 @@ export default function SortAgeEmployee() {
         
         setEmployees(result.data);
         //  SortEmployee();
-        result.data.sort( compare );
-        setEmployees(result.data);
+
+        employees.sort((a, b) => {
+            return a.age - b.age;
+        });
         
 
     }
