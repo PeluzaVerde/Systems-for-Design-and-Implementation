@@ -97,16 +97,9 @@ export default function SortAgeEmployee() {
 
             
             <Link className="btn btn-primary" to="/">Back to Home</Link>
-            <div><button className="btn btn-primary" onClick={handleSort}>Sort by Age1</button></div>
+            <div><button className="btn btn-secondary" onClick={handleSort}>Sort by Age1</button></div>
 
-            <button
-                        className="navbar-toggler" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                         data-bs-target="#navbarNav" 
-                         aria-controls="navbarNav" 
-                         aria-expanded="false"
-                          aria-label="Toggle navigation" o  nClick={handleSort}>Sort by Age</button>
+            
             
             </div>
         </div>
