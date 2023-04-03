@@ -55,13 +55,13 @@ export default function EditEmployee() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="Age" className="form-label">Age</label>
-                        <input type={"text"} className="form-control" placeholder="Enter Age" name="age" value={age}
+                        <input type={"number"} className="form-control" placeholder="Enter Age" name="age" value={age}
                             onChange={(e) => onInputChange(e)} />
 
                     </div>
                     <div className="mb-3">
                         <label htmlFor="Salary" className="form-label">Salary</label>
-                        <input type={"text"} className="form-control" placeholder="Enter Salary" name="salary" value={salary}
+                        <input type={"number"} className="form-control" placeholder="Enter Salary" name="salary" value={salary}
                             onChange={(e) => onInputChange(e)} />
 
 

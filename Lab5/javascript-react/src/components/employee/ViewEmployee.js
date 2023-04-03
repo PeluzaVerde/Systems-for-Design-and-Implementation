@@ -21,6 +21,7 @@ export default function ViewEmployee() {
 
     const loadEmployee=async()=>{
         const result = await axios.get(`api/employees/${id}`);
+        console.log(result.data);
         setEmployee(result.data);}
   return (
     <div className="container">

@@ -50,7 +50,7 @@ export default function AddEmployee() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="Salary" className="form-label">Salary</label>
-                        <input type={"text"} className="form-control" placeholder="Enter Salary" name="salary" value={salary}
+                        <input type={"number"} className="form-control" placeholder="Enter Salary" name="salary" value={salary}
                             onChange={(e) => onInputChange(e)} />
 
 
