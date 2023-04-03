@@ -30,6 +30,7 @@ export default function SortAgeEmployee() {
         setEmployees(result.data);
         //  SortEmployee();
         employees.sort( compare );
+        setEmployees(employees);
         
 
     }
